@@ -26,18 +26,24 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-
+                use: ['html-loader']
+            },
+            {
+                test: /\.(svg|png|ico|jpg|gif)$/,
+                generator: {
+                        filename: 'img/[name][hash:8][ext]'
+                    }
             }
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'bundled.[contenthash].css'
+            filename: 'bundle.[contenthash:8].css'
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'head',
-            filename: 'index.[contenthash].html',
+            filename: 'index.[contenthash:8].html',
             minify: {
                 removeAttributeQuotes: true,
                 collapseWhitespace: true,

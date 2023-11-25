@@ -22,6 +22,16 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     "css-loader"
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
+                test: /\.(svg|png|jpg|ico|gif)$/,
+                generator: {
+                        filename: 'img/[name][ext]'
+                    }
             }
         ]
     },

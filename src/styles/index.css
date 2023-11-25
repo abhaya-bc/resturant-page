@@ -1,0 +1,7 @@
+body {
+    margin: 0;
+    padding: 1rem;
+    min-height: 100vh;
+    --check: 2px solid red;
+    border: var(--check);
+}
