@@ -1,0 +1,11 @@
+
+#contact ul li {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  line-height: 100%;
+  margin: 4px;
+}
+
+#contact ul li::marker {
+    font-size: 3rem;
+}

@@ -9,7 +9,10 @@ module.exports = {
     mode: 'production',
     entry: [
         "./src/scripts/index.js",
-        "./src/styles/index.css"
+        "./src/styles/index.css",
+        "./src/styles/home.css",
+        "./src/styles/menu.css",
+        "./src/styles/contact.css",
     ],
     output: {
         filename: 'bundle.[contenthash].js',
@@ -29,9 +32,10 @@ module.exports = {
                 use: ['html-loader']
             },
             {
-                test: /\.(svg|png|ico|jpg|gif)$/,
+                test: /\.(svg|png|jpg|gif)$/,
+                use: 'file-loader',
                 generator: {
-                        filename: 'img/[name][hash:8][ext]'
+                        filename: 'img/[name][ext]'
                     }
             }
         ]
@@ -43,6 +47,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'head',
+            favicon: './src/img/icon.ico',
             filename: 'index.[contenthash:8].html',
             minify: {
                 removeAttributeQuotes: true,
