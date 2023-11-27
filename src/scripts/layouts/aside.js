@@ -8,16 +8,29 @@ const asideFragment = document.createDocumentFragment();
 const img = createSandarImg();
 const div = createDiv('', '', img)
 const ul = createUl('home', 'menu', 'contact');
-
+ul.childNodes[0].classList.add('active');
+console.log(ul);
 ul.childNodes.forEach((li, i, parent) => {
     li.addEventListener('click', ()=>{
+        if (li.classList.contains('active')) {
+            return;
+        }
+        removeActive(parent);
+        li.classList.add('active');
         switchTo(i);
     } )
 })
 
+
 const aside = createDiv('aside', '', div, ul);
 
 asideFragment.appendChild(aside);
+
+function removeActive(parent) {
+    parent.forEach(li => {
+        li.classList.remove('active');
+    })
+}
 
 export {asideFragment as default};
 
